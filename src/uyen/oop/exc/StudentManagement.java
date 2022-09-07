@@ -18,7 +18,6 @@ public class StudentManagement {
 			double toan = listStudent.get(i).getToan();
 			double ly = listStudent.get(i).getLy();
 			double hoa = listStudent.get(i).getHoa();
-			System.out.println(toan + " " + ly + " " + hoa);
 			listStudent.get(i).setGPA(Student.tinhDiemTB(toan, ly, hoa));
 			listStudent.get(i).setClassify(Student.classify(listStudent.get(i).getGPA()));
 			System.out.print("---------------------" + "\n");
@@ -74,34 +73,34 @@ public class StudentManagement {
 
 	public static void danhSachTheoMa(List<Student> listStudent) {
 		System.out.print("Nhap vao ma SV muon tim: ");
-		int n = sc.nextInt();
+		String id = sc.next();
 		boolean isFound = false;
 		for (int i = 0; i < listStudent.size(); i++) {
-			if (listStudent.get(i).getId() == n) {
+			if (listStudent.get(i).getId().equals(id)) {
 				listStudent.get(i).display();
 				isFound = true;
 			}
 		}
 		if (isFound == false) {
-			System.out.println("Khong co hoc sinh co ID " + n);
+			System.out.println("Khong co hoc sinh co ID " + id);
 		}
 	}
 
 	public static void xoaHocSinh(List<Student> listStudent) {
 		System.out.println("Nhap vao ID muon xoa: ");
-		int id = sc.nextInt();
+		String id = sc.next();
 		for (int i = 0; i < listStudent.size(); i++) {
-			if (listStudent.get(i).getId() == id) {
+			if (listStudent.get(i).getId().equals(id)) {
 				listStudent.remove(i);
 			}
 		}
 	}
 
-	public static int checkID(List<Student> listStudent, int id) {
+	public static String checkID(List<Student> listStudent, String id) {
 		for (int i = 0; i < listStudent.size(); i++) {
-			if (listStudent.get(i).getId() == id) {
+			if (listStudent.get(i).getId().equals(id)) {
 				System.out.print("Ma da ton tai,nhap lai ma hoc sinh: ");
-				id = sc.nextInt();
+				id = sc.next();
 				id = checkID(listStudent, id);
 			}
 		}

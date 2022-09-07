@@ -57,7 +57,7 @@ public class Main {
 		System.out.println("6. Tim sinh vien theo ma");
 		System.out.println("7. Xoa sinh vien theo ma");
 		System.out.println("so bat ki: Exit");
-		System.out.println("Nhap vao so: ");
+		System.out.print("Nhap vao so: ");
 	}
 
 }

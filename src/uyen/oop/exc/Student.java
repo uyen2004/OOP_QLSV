@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Student implements Serializable {
 	public static Scanner sc = new Scanner(System.in);
-	private int id;
+	private String id;
 	private String name;
 	private String email;
 	private String phone;
@@ -21,11 +21,11 @@ public class Student implements Serializable {
 	public Student() {
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -95,7 +95,7 @@ public class Student implements Serializable {
 
 	public static void input(Student student) {
 		System.out.print("Nhap vao ma hoc sinh: ");
-		student.setId(StudentManagement.checkID(listStudent, sc.nextInt()));
+		student.setId(StudentManagement.checkID(listStudent, sc.next()));
 		System.out.print("Nhap vao ten hoc sinh: ");
 		student.setName(sc.next());
 		System.out.print("Nhap vao so dien thoai: ");
@@ -133,7 +133,7 @@ public class Student implements Serializable {
 	}
 
 	public void display() {
-		System.out.format("Ma SV: %3d |", this.id);
+		System.out.format("Ma SV: %3s |", this.id);
 		System.out.format("Ten SV: %25s |", this.name);
 		System.out.format("So dien thoai: %12s |", this.phone);
 		System.out.format("Diem trung binh: %5.1f |", this.GPA);
