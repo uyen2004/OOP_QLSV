@@ -13,25 +13,25 @@ public class StudentManagement {
 		for (int i = listStudent.size(); i < quantity; i++) {
 			System.out.println("Nhap vao hoc sinh thu " + (i + 1));
 			Student student = new Student();
-			Student.input(student);
+			student.input(student);
 			listStudent.add(student);
 			double toan = listStudent.get(i).getToan();
 			double ly = listStudent.get(i).getLy();
 			double hoa = listStudent.get(i).getHoa();
-			listStudent.get(i).setGPA(Student.tinhDiemTB(toan, ly, hoa));
-			listStudent.get(i).setClassify(Student.classify(listStudent.get(i).getGPA()));
+			listStudent.get(i).setGPA(student.tinhDiemTB(toan, ly, hoa));
+			listStudent.get(i).setClassify(student.classify(listStudent.get(i).getGPA()));
 			System.out.print("---------------------" + "\n");
 		}
 	}
 
-	public static void xuatDanhSachHocSinh(List<Student> listStudent) {
+	public void xuatDanhSachHocSinh(List<Student> listStudent) {
 		for (int i = 0; i < listStudent.size(); i++) {
 			listStudent.get(i).display();
 		}
 		System.out.println();
 	}
 
-	public static void listYeu(List<Student> listStudent) {
+	public void listYeu(List<Student> listStudent) {
 		int count = 0;
 		for (int i = 0; i < listStudent.size(); i++) {
 			if (listStudent.get(i).getClassify() == "Yeu") {
@@ -44,7 +44,7 @@ public class StudentManagement {
 		}
 	}
 
-	public static Student svMax(List<Student> listStudent) {
+	public Student svMax(List<Student> listStudent) {
 		Student svMax = listStudent.get(0);
 		for (int i = 0; i < listStudent.size(); i++) {
 			if (svMax.getGPA() < listStudent.get(i).getGPA()) {
@@ -55,7 +55,7 @@ public class StudentManagement {
 		return svMax;
 	}
 
-	public static void danhSachTheoTen(List<Student> listStudent) {
+	public void danhSachTheoTen(List<Student> listStudent) {
 		System.out.print("Nhap vao ten muon tim: ");
 		String s = sc.next();
 		boolean found = false;
@@ -71,7 +71,7 @@ public class StudentManagement {
 
 	}
 
-	public static void danhSachTheoMa(List<Student> listStudent) {
+	public void danhSachTheoMa(List<Student> listStudent) {
 		System.out.print("Nhap vao ma SV muon tim: ");
 		String id = sc.next();
 		boolean isFound = false;
@@ -86,7 +86,7 @@ public class StudentManagement {
 		}
 	}
 
-	public static void xoaHocSinh(List<Student> listStudent) {
+	public void xoaHocSinh(List<Student> listStudent) {
 		System.out.println("Nhap vao ID muon xoa: ");
 		String id = sc.next();
 		for (int i = 0; i < listStudent.size(); i++) {
@@ -96,7 +96,7 @@ public class StudentManagement {
 		}
 	}
 
-	public static String checkID(List<Student> listStudent, String id) {
+	public String checkID(List<Student> listStudent, String id) {
 		for (int i = 0; i < listStudent.size(); i++) {
 			if (listStudent.get(i).getId().equals(id)) {
 				System.out.print("Ma da ton tai,nhap lai ma hoc sinh: ");
@@ -107,7 +107,7 @@ public class StudentManagement {
 		return id;
 	}
 
-	public static double checkDiem(double score) {
+	public double checkDiem(double score) {
 		if (score > 10 || score < 0) {
 			System.out.print("Diem khong hop le, nhap lai: ");
 			score = sc.nextInt();

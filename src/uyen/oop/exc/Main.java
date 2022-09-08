@@ -8,36 +8,38 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		boolean option = true;
+		StudentManagement studentManagement = new StudentManagement();
+		Student student = new Student();
 		while (option) {
 			studentManagement();
 			int n = sc.nextInt();
 			switch (n) {
 			case 1:
-				StudentManagement.addStudent(Student.listStudent);
+				studentManagement.addStudent(student.listStudent);
 				break;
 			case 2:
-				StudentManagement.xuatDanhSachHocSinh(Student.listStudent);
+				studentManagement.xuatDanhSachHocSinh(Student.listStudent);
 				break;
 			case 3:
 				System.out.println("Danh sach hoc sinh yeu");
-				StudentManagement.listYeu(Student.listStudent);
+				studentManagement.listYeu(Student.listStudent);
 				break;
 			case 4:
 				System.out.println("Danh sach hoc sinh co diem trung binh cao nhat");
 				for (int i = 0; i < Student.listStudent.size(); i++) {
-					if (Student.listStudent.get(i).getGPA() == StudentManagement.svMax(Student.listStudent).getGPA()) {
+					if (Student.listStudent.get(i).getGPA() == studentManagement.svMax(student.listStudent).getGPA()) {
 						Student.listStudent.get(i).display();
 					}
 				}
 				break;
 			case 5:
-				StudentManagement.danhSachTheoTen(Student.listStudent);
+				studentManagement.danhSachTheoTen(Student.listStudent);
 				break;
 			case 6:
-				StudentManagement.danhSachTheoMa(Student.listStudent);
+				studentManagement.danhSachTheoMa(Student.listStudent);
 				break;
 			case 7:
-				StudentManagement.xoaHocSinh(Student.listStudent);
+				studentManagement.xoaHocSinh(Student.listStudent);
 				break;
 			default:
 				System.out.println("Exit");

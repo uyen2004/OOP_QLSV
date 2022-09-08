@@ -17,6 +17,7 @@ public class Student implements Serializable {
 	private double GPA;
 	private String classify;
 	static List<Student> listStudent = new ArrayList<Student>();
+	StudentManagement studentManagement = new StudentManagement();
 
 	public Student() {
 	}
@@ -93,28 +94,28 @@ public class Student implements Serializable {
 		this.classify = classify;
 	}
 
-	public static void input(Student student) {
+	public void input(Student student) {
 		System.out.print("Nhap vao ma hoc sinh: ");
-		student.setId(StudentManagement.checkID(listStudent, sc.next()));
+		student.setId(studentManagement.checkID(listStudent, sc.next()));
 		System.out.print("Nhap vao ten hoc sinh: ");
 		student.setName(sc.next());
 		System.out.print("Nhap vao so dien thoai: ");
 		student.setPhone(sc.next());
 		System.out.print("Nhap vao diem toan: ");
-		student.setToan(StudentManagement.checkDiem(sc.nextDouble()));
+		student.setToan(studentManagement.checkDiem(sc.nextDouble()));
 		System.out.print("Nhap vao diem ly: ");
-		student.setLy(StudentManagement.checkDiem(sc.nextDouble()));
+		student.setLy(studentManagement.checkDiem(sc.nextDouble()));
 		System.out.print("Nhap vao diem Hoa: ");
-		student.setHoa(StudentManagement.checkDiem(sc.nextDouble()));
+		student.setHoa(studentManagement.checkDiem(sc.nextDouble()));
 
 	}
 
-	public static double tinhDiemTB(double toan, double ly, double hoa) {
+	public double tinhDiemTB(double toan, double ly, double hoa) {
 		double GPA = (toan + ly + hoa) / 3;
 		return GPA;
 	}
 
-	public static String classify(double GPA) {
+	public String classify(double GPA) {
 		String classification = "";
 		if (GPA > 9) {
 			classification = "Xuat Sac";
