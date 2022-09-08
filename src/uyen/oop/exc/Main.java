@@ -21,11 +21,11 @@ public class Main {
 				studentManagement.xuatDanhSachHocSinh(Student.listStudent);
 				break;
 			case 3:
-				System.out.println("Danh sach hoc sinh yeu");
+				System.out.println("----------------------Danh sach hoc sinh yeu------------------------------");
 				studentManagement.listYeu(Student.listStudent);
 				break;
 			case 4:
-				System.out.println("Danh sach hoc sinh co diem trung binh cao nhat");
+				System.out.println("--------------Danh sach hoc sinh co diem trung binh cao nhat--------------");
 				for (int i = 0; i < Student.listStudent.size(); i++) {
 					if (Student.listStudent.get(i).getGPA() == studentManagement.svMax(student.listStudent).getGPA()) {
 						Student.listStudent.get(i).display();

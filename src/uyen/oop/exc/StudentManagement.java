@@ -20,15 +20,17 @@ public class StudentManagement {
 			double hoa = listStudent.get(i).getHoa();
 			listStudent.get(i).setGPA(student.tinhDiemTB(toan, ly, hoa));
 			listStudent.get(i).setClassify(student.classify(listStudent.get(i).getGPA()));
-			System.out.print("---------------------" + "\n");
+			inDauGach();
+			System.out.println();
 		}
 	}
 
 	public void xuatDanhSachHocSinh(List<Student> listStudent) {
+		System.out.println("-----------------------------Danh sach hoc sinh--------------------------------");
 		for (int i = 0; i < listStudent.size(); i++) {
 			listStudent.get(i).display();
+			inDauGach();
 		}
-		System.out.println();
 	}
 
 	public void listYeu(List<Student> listStudent) {
@@ -37,10 +39,11 @@ public class StudentManagement {
 			if (listStudent.get(i).getClassify() == "Yeu") {
 				listStudent.get(i).display();
 				count++;
+				inDauGach();
 			}
 		}
 		if (count == 0) {
-			System.out.println("Khong co hoc sinh yeu");
+			System.out.println("	Khong co hoc sinh yeu");
 		}
 	}
 
@@ -89,10 +92,17 @@ public class StudentManagement {
 	public void xoaHocSinh(List<Student> listStudent) {
 		System.out.println("Nhap vao ID muon xoa: ");
 		String id = sc.next();
+		boolean deleted = false;
 		for (int i = 0; i < listStudent.size(); i++) {
 			if (listStudent.get(i).getId().equals(id)) {
 				listStudent.remove(i);
+				deleted = true;
 			}
+		}
+		if (deleted == true) {
+			System.out.println("Da xoa thanh cong");
+		} else {
+			System.out.println("ID khong ton tai");
 		}
 	}
 
@@ -114,5 +124,12 @@ public class StudentManagement {
 			score = checkDiem(score);
 		}
 		return score;
+	}
+
+	public static void inDauGach() {
+		for (int i = 0; i < 120; i++) {
+			System.out.print("-");
+		}
+		System.out.println();
 	}
 }

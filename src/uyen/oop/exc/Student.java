@@ -134,11 +134,11 @@ public class Student implements Serializable {
 	}
 
 	public void display() {
-		System.out.format("Ma SV: %3s |", this.id);
-		System.out.format("Ten SV: %25s |", this.name);
-		System.out.format("So dien thoai: %12s |", this.phone);
-		System.out.format("Diem trung binh: %5.1f |", this.GPA);
-		System.out.format("Xep loai: %5s |", this.classify);
+		System.out.format("Ma SV: %-5s |", this.id);
+		System.out.format("Ten SV: %-15s |", this.name);
+		System.out.format("So dien thoai: %-12s |", this.phone);
+		System.out.format("Diem trung binh: %-5.1f |", this.GPA);
+		System.out.format("Xep loai: %-5s ", this.classify);
 		System.out.println();
 	}
 
