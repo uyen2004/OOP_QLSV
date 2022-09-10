@@ -96,18 +96,17 @@ public class Student implements Serializable {
 
 	public void input(Student student) {
 		System.out.print("Nhap vao ma hoc sinh: ");
-		student.setId(studentManagement.checkID(listStudent, sc.next()));
+		student.setId(studentManagement.checkID(listStudent, sc.nextLine()));
 		System.out.println("Nhap vao ten hoc sinh: ");
 		student.setName(sc.nextLine());
-		sc.nextLine();
 		System.out.print("Nhap vao so dien thoai: ");
-		student.setPhone(sc.next());
+		student.setPhone(sc.nextLine());
 		System.out.print("Nhap vao diem toan: ");
-		student.setToan(studentManagement.checkDiem(sc.nextDouble()));
+		student.setToan(studentManagement.checkDiem(Integer.parseInt(sc.nextLine())));
 		System.out.print("Nhap vao diem ly: ");
-		student.setLy(studentManagement.checkDiem(sc.nextDouble()));
+		student.setLy(studentManagement.checkDiem(Integer.parseInt(sc.nextLine())));
 		System.out.print("Nhap vao diem Hoa: ");
-		student.setHoa(studentManagement.checkDiem(sc.nextDouble()));
+		student.setHoa(studentManagement.checkDiem(Integer.parseInt(sc.nextLine())));
 
 	}
 
