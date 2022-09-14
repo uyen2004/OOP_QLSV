@@ -9,7 +9,7 @@ public class StudentManagement {
 
 	public static void addStudent(List<Student> listStudent) {
 		System.out.print("Nhap vao so luong hoc sinh: ");
-		int n = sc.nextInt();
+		int n = Integer.parseInt(sc.nextLine());
 		int quantity = listStudent.size() + n;
 		for (int i = listStudent.size(); i < quantity; i++) {
 			System.out.println("Nhap vao hoc sinh thu " + (i + 1));
@@ -61,10 +61,10 @@ public class StudentManagement {
 
 	public void danhSachTheoTen(List<Student> listStudent) {
 		System.out.print("Nhap vao ten muon tim: ");
-		String s = sc.next();
+		String s = sc.nextLine();
 		boolean found = false;
 		for (int i = 0; i < listStudent.size(); i++) {
-			if (listStudent.get(i).getName().equals(s)) {
+			if (listStudent.get(i).getName().compareToIgnoreCase(s) == 0) {
 				listStudent.get(i).display();
 				found = true;
 			}
